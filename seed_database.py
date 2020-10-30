@@ -34,3 +34,20 @@ for movie in movie_data:
                                 poster_path)
     movies_in_db.append(db_movie)
 
+
+# Create 10 random users with unique email;
+# choose 10 movies at random and give random rating between 1 to 5
+for n in range(10):
+    email = f'user{n}@test.com' # A unique email!
+    password = 'test'
+
+    user = crud.create_user(email, password)    # create a user with unique email
+
+    for rating in range(10):                    # create for loop to occur 10 times
+        random_movie = choice(movies_in_db)     # randomly select movie from list (movies_in_db)
+        score = randint(1,5)                    # randomly choose number 1 - 5 to be score)
+
+        crud.create_rating(user, random_movie, score)   # create a rating using user, random_movie,
+                                                        # score variables generated above and create_rating
+                                                        # function from crud.py
+
