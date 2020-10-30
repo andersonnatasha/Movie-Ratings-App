@@ -17,7 +17,7 @@ model.db.create_all()
 
 #Load movies from JSON file
 with open('data/movies.json') as f:
-    movie_data = json.load(f.read())
+    movie_data = json.loads(f.read())
 
 # Create movies, store them in list so
 # we can use them to create fake ratings later
