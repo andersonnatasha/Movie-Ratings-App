@@ -2,6 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 
+
 db = SQLAlchemy()
 
 
@@ -59,7 +60,7 @@ class Rating(db.Model):
     movie = db.relationship('Movie', backref='ratings')
     user = db.relationship('User', backref='ratings')
 
-    def __repr__(self):
+    def  __repr__(self):
         return f'<Rating rating_id={self.rating_id} score={self.score}>'
 
 
