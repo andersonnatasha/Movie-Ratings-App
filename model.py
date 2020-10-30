@@ -11,10 +11,10 @@ class User(db.Model):
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer,
-                        primary_key = True,
-                        autoincrement = True
+                        primary_key=True,
+                        autoincrement=True
                         )
-    email = db.Column(db.String, unique = True)
+    email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
 
     # ratings = a list of Rating objects
@@ -29,8 +29,8 @@ class Movie(db.Model):
     __tablename__ = 'movies'
 
     movie_id = db.Column(db.Integer,
-                         primary_key = True,
-                         autoincrement = True
+                         primary_key=True,
+                         autoincrement=True
                          )
     title = db.Column(db.String)
     overview = db.Column(db.Text)
@@ -48,11 +48,11 @@ class Rating(db.Model):
 
     __tablename__ = 'ratings'
 
-    rating_id = db.Column(db.Interger,
-                          primary_key = True,
-                          autoincrement = True
+    rating_id = db.Column(db.Integer,
+                          primary_key=True,
+                          autoincrement=True
                           )
-    score = db.Column(db.Interger)
+    score = db.Column(db.Integer)
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.movie_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
 
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
 
 
-# *rating_user_id = Rating.query.get(1).user_id*?
+# rating_user_id = Rating.query.get(1).user_id?
 
 # rating_user = User.query.get(rating.user_id)
 
