@@ -16,8 +16,13 @@ def homepage():
 
     return render_template('homepage.html')
 
+@app.route('/movies')
+def all_movies():
+    """View all movies."""
 
+    movies = crud.get_movies()
 
+    return render_template('all_movies.html', movies_jinja=movies) # we changed movies_jinja from movies (in note)
 
 
 if __name__ == '__main__':
