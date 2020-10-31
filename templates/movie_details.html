@@ -3,10 +3,10 @@
 {% block title %}{{ movie.title }} - Details{% endblock %}
 
 {% block body %}
-<h1>{{ movie.title }}</h1>
+<h1>{{ movie_jinja.title }}</h1>
 
 <p>
-    {{ movie.overview }}
+    {{ movie_jinja.overview }}
 </p>
 
 <img src="{{ movie.poster_path }}">
