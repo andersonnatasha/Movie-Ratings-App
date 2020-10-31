@@ -22,7 +22,15 @@ def all_movies():
 
     movies = crud.get_movies()
 
-    return render_template('all_movies.html', movies_jinja=movies) # we changed movies_jinja from movies (in note)
+    return render_template('all_movies.html', movies_jinja=movies) # we changed movies_jinja from movies (in solution)
+
+@app.route('/movies/<movie_id>')  #route with a variable URL
+def show_movie(movie_id):
+    """Show details on a particular movie."""
+
+    movie = crud.get_movie_by_id(movie_id)
+
+    return render_template('movie_details.html', movie_jinja=movie) # we changed movies_jinja from movies (in solution)
 
 
 if __name__ == '__main__':
