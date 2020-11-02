@@ -7,15 +7,8 @@
   <ul>
     {% for movie in movies_jinja %}
       <li>
-        <a href="/movies/{{ movie.title }}">{{ movie.title }}</a> <!-- See comment below -->
+        <a href="/movies/{{ movie.movie_id }}">{{ movie.title }}</a>
       </li>
     {% endfor %}
   </ul>
 {% endblock %}
-
-
-
-<!-- Line 10: Changed from solution
-    <a href="/movies/{{ movie.movie_id }}">
-      {{ movie.title }}
-    </a>  -->
