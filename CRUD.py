@@ -13,7 +13,7 @@ def create_user(email, password):
 
     return user
 
-def get_user():
+def get_users():
     """Return all users."""
 
     return User.query.all()
