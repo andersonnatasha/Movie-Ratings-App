@@ -53,6 +53,25 @@ def show_user(user_id):
     return render_template('user_details.html', user_jinja=user)
 
 
+@app.route('/')
+def set_primary_key_session():
+    """Set value for session['primary_key']."""
+
+    #email = request.args['SOMETHING']
+    #session['primary_key'] = User.query.get(User.email)
+
+    return redirect('/')
+
+
+# @app.route('/get-name')   ---> from skills assessment 3 for reference
+# def set_name_sessions():
+#     """Set name sessions"""
+
+#     name = request.args.get('name')
+#     session['name'] = name
+#     return redirect('/top-melons')
+
+
 @app.route('/movies')
 def all_movies():
     """View all movies."""
