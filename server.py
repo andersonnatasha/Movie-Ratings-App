@@ -26,6 +26,13 @@ def all_users():
     return render_template('all_users.html', users_jinja=users)
 
 
+@app.route('/users', methods=['POST'])
+def register_user():
+    """Create a new user."""
+
+    new_user = request.form['email']
+    password = request.form['password']
+
 @app.route('/users/<user_id>')
 def show_user(user_id):
     """Show details on a particular user."""

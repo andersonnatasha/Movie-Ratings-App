@@ -26,7 +26,11 @@ def get_user_by_id(user_id):
     return User.query.get(user_id)
 
 
-def create_movie(title, overview, release_date, poster_path):
+def get_user_by_email(email):
+    """Return a user by email."""
+
+    return User.query.filter(User.email == email).first()
+
     """Create and return a new movie."""
 
     movie = Movie(title=title,
