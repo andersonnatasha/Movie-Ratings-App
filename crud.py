@@ -31,14 +31,19 @@ def get_user_by_email(email):
 
     return User.query.filter(User.email == email).first()
 
+def create_movie(title, overview, release_date, poster_path):
+    """Create and return a new movie."""
+
+    movie = Movie(title=title,
+                  overview=overview,
+                  release_date=release_date,
+                  poster_path=poster_path)
+
     db.session.add(movie)
     db.session.commit()
 
     return movie
 
-def get_movies():
-
-def get_movies():
 
 def get_movies():
     """Return all movies."""
@@ -68,3 +73,6 @@ def create_rating(user, movie, score):
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
+
+
+
