@@ -31,17 +31,14 @@ def get_user_by_email(email):
 
     return User.query.filter(User.email == email).first()
 
-
-    movie = Movie(title=title,
-                overview=overview,
-                release_date=release_date,
-                poster_path=poster_path)
-
     db.session.add(movie)
     db.session.commit()
 
     return movie
 
+def get_movies():
+
+def get_movies():
 
 def get_movies():
     """Return all movies."""

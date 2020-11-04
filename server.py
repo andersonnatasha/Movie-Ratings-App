@@ -30,7 +30,6 @@ def all_users():
 def register_user():
     """Create a new user."""
 
-
     email = request.form['email']         # changed from solution: request.form.get('email')
     password = request.form['password']   # changed from solution: request.form.get('password')
 
@@ -57,8 +56,9 @@ def show_user(user_id):
 def set_primary_key_session():
     """Set value for session['primary_key']."""
 
-    #email = request.args['SOMETHING']
-    #session['primary_key'] = User.query.get(User.email)
+    email = request.args['SOMETHING']
+    user = crud.get_user_by_email(email)
+    session['primary_key'] = User.query.get(user.user_id)
 
     return redirect('/')
 
