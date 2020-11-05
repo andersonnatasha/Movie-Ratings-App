@@ -52,13 +52,22 @@ def show_user(user_id):
     return render_template('user_details.html', user_jinja=user)
 
 
-@app.route('/')
-def set_primary_key_session():
-    """Set value for session['primary_key']."""
+@app.route('/users')
+def login():
+    """Set value for session[email] to user_id."""
 
-    email = request.args['SOMETHING']
+    email = request.args['emailL']
+    password = request.args['passwordL']
+
     user = crud.get_user_by_email(email)
-    session['primary_key'] = User.query.get(user.user_id)
+    if email == user.email and password == user.password:
+        flash('Successfully logged in!')
+    else:
+        flash('Email and password did not match our records.')
+
+    # session["email"] = user.user_id
+
+    # flash(f'{session["email"]}')
 
     return redirect('/')
 
