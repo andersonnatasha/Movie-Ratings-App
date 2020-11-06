@@ -52,7 +52,7 @@ def show_user(user_id):
     return render_template('user_details.html', user_jinja=user)
 
 
-@app.route('/users')
+@app.route('/handle-form-session')
 def login():
     """Set value for session[email] to user_id."""
 
@@ -60,14 +60,12 @@ def login():
     password = request.args['passwordL']
 
     user = crud.get_user_by_email(email)
-    if email == user.email and password == user.password:
-        flash('Successfully logged in!')
+
+    if  user == None or password != user.password:
+        flash("Email and password did not match our records. Please try again.")
     else:
-        flash('Email and password did not match our records.')
-
-    # session["email"] = user.user_id
-
-    # flash(f'{session["email"]}')
+        flash('Successfully logged in!')
+        session['user_id'] = user.user_id
 
     return redirect('/')
 
